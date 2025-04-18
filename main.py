@@ -29,8 +29,8 @@ class MyPlugin(Star):
         message_str = event.message_str  # 用户发的纯文本消息字符串
         message_chain = event.get_messages()  # 用户所发的消息的消息链 # from astrbot.api.message_components import *
         config = self.context.get_config()
-        token = config.get("token", None)
-        workflow_id = config["coze1_config"]["items"]["workflow_id"]
+        token = config["token"]
+        workflow_id = config["workflow_id"]
         json = {
             "workflow_id": workflow_id,
             "parameters": {
