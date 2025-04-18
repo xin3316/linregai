@@ -12,7 +12,7 @@ class MyPlugin(Star):
     async def send_data(self, token, url, payload):
         async with aiohttp.ClientSession() as session:
             headers = {
-                "Authorization": f"Bearer {self}",
+                "Authorization": f"Bearer {token}",
                 "Content-Type": "application/json"
             }
             async with session.post(url, headers=headers, json=payload) as response:
