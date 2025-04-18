@@ -5,16 +5,10 @@
         "hint": "Coze Token",
         "obvious_hint": true
     },
-    "coze1_config": {
-        "description": "天堂机器码充值流程配置",
-        "type": "object",
-        "hint": "Coze参数设置",
-        "items": {
-            "workflow_id": {
-                "description": "流程ID",
-                "type": "string",
-                "hint": "必选"
-            }
-        }
+    "workflow_id": {
+        "description": "Coze流程ID",
+        "type": "string",
+        "hint": "必选",
+        "obvious_hint": true
     }
 }
