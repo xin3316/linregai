@@ -1,5 +1,5 @@
 name: linregai # 这是你的插件的唯一识别名。
 desc: 天堂机器码充值插件，支持关键词回复。 # 插件简短描述
-version: v1.3 # 插件版本号。格式：v1.1.1 或者 v1.1
+version: v1.5 # 插件版本号。格式：v1.1.1 或者 v1.1
 author: Xin3316 # 作者
 repo: https://github.com/xin3316/linregai # 插件的仓库地址
