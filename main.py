@@ -3,11 +3,15 @@ from astrbot.api.star import Context, Star, register
 from astrbot.api import logger
 import aiohttp
 
+from astrbot.core import AstrBotConfig
+
 
 @register("linregai", "小新", "一个天堂辅助充值插件", "1.0.0")
 class MyPlugin(Star):
-    def __init__(self, context: Context):
+    def __init__(self, context: Context, config: AstrBotConfig):
         super().__init__(context)
+        self.config = config
+        # print(self.config)
 
     async def send_data(self, token, url, payload):
         async with aiohttp.ClientSession() as session:
@@ -28,15 +32,14 @@ class MyPlugin(Star):
         user_name = event.get_sender_name()
         message_str = event.message_str  # 用户发的纯文本消息字符串
         message_chain = event.get_messages()  # 用户所发的消息的消息链 # from astrbot.api.message_components import *
-        config = self.context.get_config()
-        token = config["token"]
-        workflow_id = config["workflow_id"]
+        workflow_id = self.config.get("workflow_id")
+        token = self.config.get("token")
+        # print(f"{token} - {workflow_id}")
         json = {
             "workflow_id": workflow_id,
             "parameters": {
                 "input": message_str
-            },
-            "is_async": True
+            }
         }
         response = await self.send_data(token, "https://api.coze.cn/v1/workflow/run", json)
         logger.info(message_chain)
