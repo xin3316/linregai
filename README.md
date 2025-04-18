@@ -1,4 +1,4 @@
-# helloworld
+# linregai
 
 AstrBot 插件模板
 
